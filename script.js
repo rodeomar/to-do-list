@@ -36,9 +36,17 @@ function Task(taskName) {
   this.done = false;
 }
 
+User.prototype.deleteTask = function(id) {
+  if (this.tasks[id] === undefined) {
+    return false;
+  }
+  delete this.tasks[id];
+  return true;
+};
+
 // 
 let toDoList = new ToDoList();
 let raed = new User("Raed");
 toDoList.addUser(raed);
 let task1 = new Task("wash the car");
-// raed.addTask(task1);
+raed.addTask(task1);
